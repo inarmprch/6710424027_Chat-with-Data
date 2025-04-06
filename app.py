@@ -25,7 +25,6 @@ def load_data():
         return None, None
       
 df_dict, df_txn = load_csvs()
-  if df_dict is not None and df_txn is not None:
     st.success("CSV data loaded from GitHub.")
     st.dataframe(df_txn.head(2))
   else:
