@@ -24,12 +24,6 @@ def load_data():
         st.error(f"Error loading from GitHub:{e}")
         return None, None
       
-df_dict, df_txn = load_csvs()
-    st.success("CSV data loaded from GitHub.")
-    st.dataframe(df_txn.head(2))
-  else:
-    st.stop()
-    
 st.subheader("Ask a data question")
 question = st.text_input("Your Question:")
 
