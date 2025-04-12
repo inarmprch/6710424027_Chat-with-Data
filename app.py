@@ -34,7 +34,7 @@ use_github_data = st.radio("Select data input option:", ["Use Provided CSV", "Up
 
 df_dict, df_txn = None, None
 
-if use_github_data == "Use GitHub CSVs":
+if use_github_data == "Use Provided CSV":
     df_dict, df_txn = load_data_from_github()
 else:
     uploaded_dict = st.file_uploader("Upload data_dict.csv", type="csv")
@@ -46,6 +46,7 @@ else:
             st.success("✅ Uploaded files successfully.")
         except Exception as e:
             st.error(f"❌ File upload error: {e}")
+
 # แสดงตัอย่างไฟล์
 if df_dict is not None and df_txn is not None:
     st.write("### 🧾 Data Dictionary Preview")
