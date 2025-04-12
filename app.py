@@ -47,17 +47,6 @@ else:
         except Exception as e:
             st.error(f"❌ File upload error: {e}")
 
-# แสดงตัวอย่างไฟล์
-if df_dict is not None and df_txn is not None:
-    st.write("### 🧾 Data Dictionary Preview")
-    st.dataframe(df_dict.head())
-
-    st.write("### 📊 Transactions Preview")
-    st.dataframe(df_txn.head(2))
-else:
-    st.info("Please load data to continue.")
-    st.stop()
-
 # รับข้อความจากผู้ใช้
 st.subheader("Ask a data question 💬")
 question = st.text_input("Your Question:")
