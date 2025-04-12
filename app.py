@@ -5,7 +5,7 @@ import google.generativeai as genai
 # ตั้งค่า Gemini API Key
 try:
   key = st.secrets['gemini_api_key']
-  genai.configure(api_key=key)
+  genai.configure(api_key='AIzaSyBLFOfPKLSV6RnDM_IaMI_U_dCePNjD-20')
   model = genai.GenerativeModel('gemini-2.0-flash-lite')
   st.success("✅ Gemini model initialized.")
 except Exception as e:
