@@ -30,7 +30,7 @@ def load_data_from_github():
 
 # เลือกต้นทางข้อมูล
 st.subheader("Choose your data source")
-use_github_data = st.radio("Select data input option:", ["Use GitHub CSVs", "Upload CSV files"])
+use_github_data = st.radio("Select data input option:", ["Use Provided CSV", "Upload CSV files"])
 
 df_dict, df_txn = None, None
 
@@ -46,7 +46,17 @@ else:
             st.success("✅ Uploaded files successfully.")
         except Exception as e:
             st.error(f"❌ File upload error: {e}")
+# แสดงตัอย่างไฟล์
+if df_dict is not None and df_txn is not None:
+    st.write("### 🧾 Data Dictionary Preview")
+    st.dataframe(df_dict.head())
 
+    st.write("### 📊 Transactions Preview")
+    st.dataframe(df_txn.head(2))
+else:
+    st.info("Please load data to continue.")
+    st.stop()
+  
 # รับข้อความจากผู้ใช้
 st.subheader("Ask a data question 💬")
 question = st.text_input("Your Question:")
